@@ -94,7 +94,7 @@ class Student:
         tbody = self.get_tbody(url)
         all_score = []
         for tr in tbody.find_all('tr'):
-            temp = Score([td.text for td in tr.find_all('td') if td.text != ''])
+            temp = Score([td.text for index, td in enumerate(tr.find_all('td')) if index != 4 and index < 6])
             all_score += [temp.__dict__()]
         return all_score
 
